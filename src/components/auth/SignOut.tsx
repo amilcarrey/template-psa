@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSupabase } from '@supabase/SupabaseProvider'
 import { Session } from '@supabase/auth-helpers-nextjs'
+import toast from 'react-hot-toast'
 
 const SignOut = () => {
    const { supabase } = useSupabase()
@@ -14,9 +15,17 @@ const SignOut = () => {
    }, [supabase])
 
    const signOut = async () => {
-      const { error } = await supabase.auth.signOut()
-      if (error) console.log('error', error)
-      setSession(null)
+      const res = await toast.promise(
+         supabase.auth.signOut(),
+         {
+            loading: 'Signing out...',
+            success: <b>You have been logged out</b>,
+            error: <b>There was an error logging out</b>,
+         },
+         { duration: 4000 }
+      )
+      
+      if (!res.error) setSession(null)
    }
    return session ? <span className='cursor-pointer' onClick={() => signOut()}>Sign out</span> : null
 }

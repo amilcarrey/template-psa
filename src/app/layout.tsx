@@ -3,6 +3,7 @@ import Providers from './providers'
 import SupabaseListener from '@supabase/SupabaseListener'
 import { createClient } from '@utils/supabase/supabase-server'
 import { Footer } from '@/components/layout/Footer'
+import ClientComponentWrapper from '@/components/layout/ClientComponentWrapper'
 
 export default async function RootLayout({
    children,
@@ -24,6 +25,7 @@ export default async function RootLayout({
          <Providers>
             <SupabaseListener serverAccessToken={session?.access_token} />
             <body>
+               <ClientComponentWrapper />
                {children}
                <Footer />
             </body>
