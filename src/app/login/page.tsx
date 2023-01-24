@@ -5,7 +5,7 @@ import React from 'react'
 
 const Login = () => {
    return (
-      <div className="flex h-screen items-center justify-center bg-slate-700 text-black">
+      <div className="flex h-screen items-center justify-center bg-black text-white">
          <SignIn />
       </div>
    )

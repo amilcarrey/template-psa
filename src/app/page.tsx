@@ -2,14 +2,13 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from './page.module.css'
 import UserName from '@auth/UserName'
+import SignOut from '@/components/auth/SignOut'
 
 const inter = Inter({ subsets: ['latin'] })
-
+const DEBUG = true
 export default async function Home() {
    return (
       <main className={styles.main}>
-         {/* @ts-expect-error Server Component */}
-         <UserName />
          <div className={styles.description}>
             <p>
                Get started by editing&nbsp;
@@ -33,7 +32,10 @@ export default async function Home() {
                </a>
             </div>
          </div>
-
+         <div className='flex gap-8'>
+            {/* @ts-expect-error Server Component */}
+            <UserName /> <SignOut />
+         </div>
          <div className={styles.center}>
             <Image
                className={styles.logo}

@@ -2,6 +2,7 @@ import './globals.css'
 import Providers from './providers'
 import SupabaseListener from '@supabase/SupabaseListener'
 import { createClient } from '@utils/supabase/supabase-server'
+import { Footer } from '@/components/layout/Footer'
 
 export default async function RootLayout({
    children,
@@ -22,7 +23,10 @@ export default async function RootLayout({
          <head />
          <Providers>
             <SupabaseListener serverAccessToken={session?.access_token} />
-            <body>{children}</body>
+            <body>
+               {children}
+               <Footer />
+            </body>
          </Providers>
       </html>
    )
