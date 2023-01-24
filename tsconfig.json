@@ -23,8 +23,12 @@
       "paths": {
          "@/*": ["./src/*"],
          "@ui/*": ["./src/components/*"],
+         "@auth/*": ["./src/components/auth/*"],
+         "@elements/*": ["./src/components/elements/*"],
+         "@supabase/*": ["./src/components/supabase/*"],
          "@primitives/*": ["./src/primitives/*"],
-         "@style/*": ["./src/styles/*"]
+         "@style/*": ["./src/styles/*"],
+         "@utils/*": ["./src/utils/*"]
       }
    },
    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
